@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if content_for? :title %><%= yield :title %> - <% end %>RailsInspire
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <%# render "layouts/analytics" if show_analytics? %>
+  </head>
+
+  <body>
+    <%# render "layouts/analytics_noscript" if show_analytics? %>
+
+    <div class="bg-[#E2E0E0] flex flex-col min-h-screen">
+      <%= render "layouts/navigation" %>
+      <%= render "layouts/header" %>
+
+      <main class="flex justify-center">
+        <div class="max-w-7xl px-4 py-8 flex flex-1">
+          <%= render "layouts/flash" if flash.present? %>
+
+          <%= yield %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
