@@ -1,5 +1,11 @@
-<div id="<%= dom_id sample_file, :contents %>" data-controller="highlight">
-<pre>
-<%= sample_file.contents %>
-</pre>
+<div id="<%= dom_id sample_file, :contents %>" class="flex">
+  <div class="text-gray-500 mr-4 text-right">
+    <% (1..sample_file.contents.lines.count).each do |l| %>
+      <%= l %><br>
+    <% end %>
+  </div>
+
+  <div class="overflow-x-scroll" data-controller="highlight">
+    <pre><%= sample_file.contents %></pre>
+  </div>
 </div>
