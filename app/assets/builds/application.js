@@ -5730,13 +5730,15 @@
   application.debug = false;
   window.Stimulus = application;
 
-  // app/javascript/controllers/hello_controller.js
-  var hello_controller_default = class extends Controller {
+  // app/javascript/controllers/highlight_controller.js
+  var highlight_controller_default = class extends Controller {
     connect() {
-      this.element.textContent = "Hello World!";
+      this.element.querySelectorAll("pre").forEach((block) => {
+        hljs.highlightElement(block);
+      });
     }
   };
 
   // app/javascript/controllers/index.js
-  application.register("hello", hello_controller_default);
+  application.register("highlight", highlight_controller_default);
 })();

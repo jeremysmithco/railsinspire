@@ -5,3 +5,7 @@
 .font-recursive-mono {
   font-variation-settings: "MONO" 1;
 }
+
+.hljs {
+  background-color: unset !important;
+}
