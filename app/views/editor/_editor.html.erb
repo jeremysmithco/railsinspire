@@ -1,0 +1,13 @@
+<div class="flex mt-4">
+  <div class="bg-[#2D2D2D] rounded-l text-xs text-[#D6D6D6]">
+    <%= render "editor/menu", sample_files: sample_files %>
+  </div>
+
+  <div class="flex-1 bg-[#454545] text-sm text-white">
+    <%= render partial: "editor/contents", collection: sample_files, as: :sample_file %>
+  </div>
+
+  <div class="flex-1 bg-white rounded-r text-sm">
+    <%= render partial: "editor/description", collection: sample_files, as: :sample_file %>
+  </div>
+</div>

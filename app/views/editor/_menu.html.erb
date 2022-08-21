@@ -1,0 +1,7 @@
+<div class="flex flex-col">
+  <% sample_files.each do |sample_file| %>
+    <div>
+      <%= File.basename sample_file.path %>
+    </div>
+  <% end %>
+</div>
