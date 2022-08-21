@@ -1,0 +1,23 @@
+<% content_for(:header) do %>
+  <div>
+    <%= link_to @sample.category.name, category_path(@sample.category.slug), class: "block text-[#950000] underline" %>
+
+    <h1 class="text-xl font-normal leading-normal text-white">
+      <%= @sample.title %>
+    </h1>
+  </div>
+
+  <div class="text-white">
+    Curated <%= relative_time @sample.created_at %>
+  </div>
+<% end %>
+
+<% if @sample.description.present? %>
+  <h3 class="text-[#868686] text-sm mb-2">Description</h3>
+
+  <div>
+    <%= @sample.description %>
+  </div>
+<% end %>
+
+<%# render @sample.files %>
