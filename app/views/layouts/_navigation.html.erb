@@ -1,13 +1,13 @@
 <nav class="bg-[#950000] flex justify-center">
-  <div class="max-w-7xl px-4 py-4 flex flex-1 justify-between items-center">
-    <a href="" class="text-2xl font-semibold">
+  <div class="max-w-7xl px-4 py-2 flex flex-1 justify-between items-center">
+    <%= link_to root_path, class: "text-xl font-semibold" do %>
       <span class="text-red-500">Rails</span><span class="text-white">Inspire</span>
-    </a>
+    <% end %>
 
-    <div class="space-x-8">
-      <a href="" class="text-white">Categories</a>
-      <a href="" class="text-white">Libraries</a>
-      <a href="" class="text-white">About </a>
+    <div class="space-x-8 text-sm">
+      <%= link_to "Categories", [:categories], class: "text-white" %>
+      <%= link_to "Libraries", "", class: "text-white" %>
+      <%= link_to "About", "", class: "text-white" %>
     </div>
   </div>
 </nav>
