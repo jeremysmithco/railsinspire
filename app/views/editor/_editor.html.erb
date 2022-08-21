@@ -1,13 +1,13 @@
 <div class="flex mt-4">
-  <div class="bg-[#2D2D2D] rounded-l text-xs text-[#D6D6D6]">
+  <div class="bg-[#2D2D2D] rounded-l px-2 py-6 text-xs text-[#D6D6D6]">
     <%= render "editor/menu", sample_files: sample_files %>
   </div>
 
-  <div class="flex-1 bg-[#454545] text-sm text-white">
+  <div class="flex-1 bg-[#454545] p-6 text-sm leading-loose text-white font-recursive-mono">
     <%= render partial: "editor/contents", collection: sample_files, as: :sample_file %>
   </div>
 
-  <div class="flex-1 bg-white rounded-r text-sm">
+  <div class="flex-1 bg-white rounded-r p-6 text-sm leading-relaxed">
     <%= render partial: "editor/description", collection: sample_files, as: :sample_file %>
   </div>
 </div>
