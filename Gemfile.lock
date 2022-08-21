@@ -202,6 +202,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    view_component (2.69.0)
+      activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -237,6 +241,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   turbo-rails
+  view_component
   web-console
   webdrivers
 

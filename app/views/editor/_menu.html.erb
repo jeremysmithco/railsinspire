@@ -1,7 +1,7 @@
-<div class="flex flex-col">
-  <% sample_files.each do |sample_file| %>
-    <div>
-      <%= File.basename sample_file.path %>
-    </div>
+<div class="flex flex-col p-2">
+  <%= tag.div(class: "-ml-4") do %>
+    <%= render FileTreeComponent.new(
+      FileTree.new(sample_files.map(&:path)).tree
+    ) %>
   <% end %>
 </div>

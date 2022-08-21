@@ -1,0 +1,23 @@
+<%= tag.ul(class: "ml-4") do %>
+  <% @tree.map do |node| %>
+    <%= tag.li do %>
+      <% if node.first == node.last %>
+        <div class="flex items-center space-x-1 ml-5 mb-2">
+          <div><%= render "icons/heroicons/outline/document-text" %></div>
+          <div><%= node.first %></div>
+        </div>
+      <% else %>
+        <div class="flex items-center space-x-1 mb-1">
+          <div class="flex items-center">
+            <%= render "icons/heroicons/solid/chevron-down" %>
+            <%= render "icons/heroicons/solid/folder" %>
+          </div>
+
+          <div><%= node.first %></div>
+        </div>
+
+        <%= render FileTreeComponent.new(node.last) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
