@@ -6,5 +6,8 @@ class SamplesController < ApplicationController
 
   def show
     @sample = Sample.find(params[:id])
+    @sample_file = @sample.sample_files.first
+
+    render "sample_files/show"
   end
 end

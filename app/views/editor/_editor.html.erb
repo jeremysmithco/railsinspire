@@ -4,10 +4,10 @@
   </div>
 
   <div class="flex-1 bg-[#454545] p-6 text-sm leading-loose text-white font-recursive-mono overflow-y-scroll">
-    <%= render partial: "editor/contents", collection: sample_files, as: :sample_file %>
+    <%= render "editor/contents", sample_file: sample_file %>
   </div>
 
   <div class="flex-1 bg-white rounded-r p-6 text-sm leading-relaxed overflow-y-scroll">
-    <%= render partial: "editor/description", collection: sample_files, as: :sample_file %>
+    <%= render "editor/description", sample_file: sample_file %>
   </div>
 </div>

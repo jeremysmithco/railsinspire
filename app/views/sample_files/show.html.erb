@@ -20,4 +20,8 @@
   </div>
 <% end %>
 
-<%= render "editor/editor", sample_files: @sample.sample_files %>
+<% @sample.sample_files.each do |sample_file| %>
+  <%= link_to sample_file.path, [@sample, sample_file] %>
+<% end %>
+
+<%= render "editor/editor", sample_files: @sample.sample_files, sample_file: @sample_file %>
