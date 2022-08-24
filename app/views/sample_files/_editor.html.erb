@@ -1,13 +1,13 @@
 <div class="flex mt-4 max-h-[600px]">
   <div class="bg-[#2D2D2D] rounded-l px-2 py-6 text-xs text-[#D6D6D6]">
-    <%= render "editor/menu", sample_files: sample_files %>
+    <%= render "sample_files/menu", sample_files: sample_files %>
   </div>
 
   <div class="flex-1 bg-[#454545] p-6 text-sm leading-loose text-white font-recursive-mono overflow-y-scroll">
-    <%= render "editor/contents", sample_file: sample_file %>
+    <%= render "sample_files/contents", sample_file: sample_file %>
   </div>
 
   <div class="flex-1 bg-white rounded-r p-6 text-sm leading-relaxed overflow-y-scroll">
-    <%= render "editor/description", sample_file: sample_file %>
+    <%= render "sample_files/description", sample_file: sample_file %>
   </div>
 </div>
