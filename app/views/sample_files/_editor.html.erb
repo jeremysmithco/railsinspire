@@ -1,13 +1,20 @@
-<div class="flex mt-4 max-h-[600px]">
-  <div class="bg-[#2D2D2D] rounded-l px-2 py-6 text-xs text-[#D6D6D6]">
+[<%= cookies[:editor] %>]
+[<%= menu_width_or_default %>]
+
+<div class="flex items-stretch w-full mt-4 max-h-[600px]">
+  <%= tag.div class: "bg-[#2D2D2D] rounded-l px-2 py-6 text-xs text-[#D6D6D6] resize-x min-w-[100px] max-w-[400px] overflow-y-scroll",
+              style: "width: #{menu_width_or_default}px;",
+              data: { controller: "resize", action: "click->resize#update", resize_url_value: resize_path } do %>
     <%= render "sample_files/menu", sample_files: sample_files %>
-  </div>
+  <% end %>
 
-  <div class="flex-1 bg-[#454545] p-6 text-sm leading-loose text-white font-recursive-mono overflow-y-scroll">
+  <%= tag.div class: "bg-[#454545] p-6 text-sm leading-loose text-white font-recursive-mono overflow-y-scroll resize-x",
+              style: "width: #{650}px;",
+              data: { controller: "resize", action: "click->resize#update", resize_url_value: resize_path } do %>
     <%= render "sample_files/contents", sample_file: sample_file %>
-  </div>
+  <% end %>
 
-  <div class="flex-1 bg-white rounded-r p-6 text-sm leading-relaxed overflow-y-scroll">
+  <div class="flex-1 bg-white rounded-r p-6 text-sm leading-relaxed">
     <%= render "sample_files/description", sample_file: sample_file %>
   </div>
 </div>
