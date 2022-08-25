@@ -1,20 +1,19 @@
-[<%= cookies[:editor] %>]
-[<%= menu_width_or_default %>]
-
-<div class="flex items-stretch w-full mt-4 max-h-[600px]">
-  <%= tag.div class: "bg-[#2D2D2D] rounded-l px-2 py-6 text-xs text-[#D6D6D6] resize-x min-w-[100px] max-w-[400px] overflow-y-scroll",
+<%= tag.div class: "bg-[#ccc] rounded flex items-stretch w-full mt-4 min-h-[250px] overflow-y-scroll resize-y pb-3",
+            style: "height: #{editor_height_or_default}px;",
+            data: { controller: "resize-height", action: "click->resize-height#update", resize_height_url_value: resize_path, resize_height_setting_value: "editor_height" } do %>
+  <%= tag.div class: "bg-[#333] rounded-t-l px-2 py-6 text-xs text-[#D6D6D6] resize-x min-w-[100px] max-w-[400px] overflow-y-scroll",
               style: "width: #{menu_width_or_default}px;",
-              data: { controller: "resize", action: "click->resize#update", resize_url_value: resize_path } do %>
+              data: { controller: "resize-width", action: "click->resize-width#update", resize_width_url_value: resize_path, resize_width_setting_value: "menu_width" } do %>
     <%= render "sample_files/menu", sample_files: sample_files %>
   <% end %>
 
   <%= tag.div class: "bg-[#454545] p-6 text-sm leading-loose text-white font-recursive-mono overflow-y-scroll resize-x",
-              style: "width: #{650}px;",
-              data: { controller: "resize", action: "click->resize#update", resize_url_value: resize_path } do %>
+              style: "width: #{contents_width_or_default}px;",
+              data: { controller: "resize-width", action: "click->resize-width#update", resize_width_url_value: resize_path, resize_width_setting_value: "contents_width" } do %>
     <%= render "sample_files/contents", sample_file: sample_file %>
   <% end %>
 
-  <div class="flex-1 bg-white rounded-r p-6 text-sm leading-relaxed">
+  <%= tag.div class: "flex-1 bg-white overflow-y-scroll rounded-t-r p-6 text-sm leading-relaxed" do %>
     <%= render "sample_files/description", sample_file: sample_file %>
-  </div>
-</div>
+  <% end %>
+<% end %>

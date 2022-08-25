@@ -6,5 +6,7 @@ import { application } from "./application"
 
 import HighlightController from "./highlight_controller"
 application.register("highlight", HighlightController)
-import ResizeController from "./resize_controller";
-application.register("resize", ResizeController);
+import ResizeWidthController from "./resize_width_controller";
+application.register("resize-width", ResizeWidthController);
+import ResizeHeightController from "./resize_height_controller";
+application.register("resize-height", ResizeHeightController);
