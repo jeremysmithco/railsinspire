@@ -1,11 +1,11 @@
 <%= tag.ul(class: "ml-4") do %>
   <% @tree.map do |node| %>
     <%= tag.li do %>
-      <% if node.first == node.last %>
-        <div class="flex items-center space-x-1 ml-5 mb-2">
+      <% if node.last.is_a?(SampleFile) %>
+        <%= link_to [node.last.sample, node.last], class: "flex items-center space-x-1 ml-5 mb-2 hover:text-blue-300" do %>
           <div><%= render "icons/heroicons/outline/document-text" %></div>
           <div><%= node.first %></div>
-        </div>
+        <% end %>
       <% else %>
         <div class="flex items-center space-x-1 mb-1">
           <div class="flex items-center">

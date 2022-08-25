@@ -20,10 +20,6 @@
   </div>
 <% end %>
 
-<% @sample.sample_files.each do |sample_file| %>
-  <%= link_to sample_file.path, [@sample, sample_file], data: { turbo_frame: "editor" } %>
-<% end %>
-
 <%= turbo_frame_tag "editor", data: { turbo_action: "advance" } do %>
   <%= render "sample_files/editor", sample_files: @sample.sample_files, sample_file: @sample_file %>
 <% end %>
