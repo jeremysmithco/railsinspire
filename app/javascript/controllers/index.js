@@ -4,8 +4,10 @@
 
 import { application } from "./application"
 
-import HighlightController from "./highlight_controller"
-application.register("highlight", HighlightController)
+import NestedForm from "stimulus-rails-nested-form";
+application.register("nested-form", NestedForm);
+import HighlightController from "./highlight_controller";
+application.register("highlight", HighlightController);
 import ResizeWidthController from "./resize_width_controller";
 application.register("resize-width", ResizeWidthController);
 import ResizeHeightController from "./resize_height_controller";
