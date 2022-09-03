@@ -1,7 +1,7 @@
-<%= tag.div class: "bg-[#ccc] rounded flex items-stretch w-full mt-4 min-h-[250px] overflow-y-scroll resize-y pb-3",
+<%= tag.div class: "bg-[#ccc] rounded flex items-stretch w-full mt-4 min-h-[250px] overflow-y-scroll resize-y",
             style: "height: #{editor_height_or_default}px;",
-            data: { controller: "resize-height", action: "click->resize-height#update", resize_height_url_value: resize_path, resize_height_setting_value: "editor_height" } do %>
-  <%= tag.div class: "bg-[#333] rounded-t-l resize-x min-w-[100px] max-w-[400px] overflow-y-scroll",
+            data: { controller: "resize-height", resize_height_url_value: resize_path, resize_height_setting_value: "editor_height", resize_height_current_height_value: editor_height_or_default } do %>
+  <%= tag.div class: "bg-[#333] rounded-t-l resize-x min-w-[100px] max-w-[400px] mb-3 overflow-y-scroll",
               style: "width: #{menu_width_or_default}px;",
               data: { controller: "resize-width", resize_width_url_value: resize_path, resize_width_setting_value: "menu_width", resize_width_current_width_value: menu_width_or_default } do %>
     <%= tag.div class: "px-2 py-6 text-xs text-[#D6D6D6]" do %>
@@ -9,7 +9,7 @@
     <% end %>
   <% end %>
 
-  <%= tag.div class: "bg-[#454545] overflow-y-scroll resize-x",
+  <%= tag.div class: "bg-[#454545] mb-3 overflow-y-scroll resize-x",
               style: "width: #{contents_width_or_default}px;",
               data: { controller: "resize-width", resize_width_url_value: resize_path, resize_width_setting_value: "contents_width", resize_width_current_width_value: contents_width_or_default } do %>
     <%= tag.div class: "p-6 text-sm leading-loose text-white font-recursive-mono" do %>
@@ -17,7 +17,7 @@
     <% end %>
   <% end %>
 
-  <%= tag.div class: "flex-1 bg-white overflow-y-scroll rounded-t-r p-6 text-sm leading-relaxed" do %>
+  <%= tag.div class: "flex-1 bg-white mb-3 overflow-y-scroll rounded-t-r p-6 text-sm leading-relaxed" do %>
     <%= render "sample_files/description", sample_file: sample_file %>
   <% end %>
 <% end %>
