@@ -1,0 +1,32 @@
+<%= form_with(model: category, builder: TailwindBuilder) do |form| %>
+  <% if category.errors.any? %>
+    <p>Please review the problems below:</p>
+
+    <ul class="list-disc list-inside mb-4">
+      <% category.errors.full_messages.each do |msg| %>
+        <li class="ml-4"><span><%= msg.html_safe %></span></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :slug %>
+    <%= form.text_field :slug %>
+  </div>
+
+  <div>
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, rows: 6 %>
+  </div>
+
+  <hr class="my-6 border-t-[#cecece]">
+
+  <div class="flex justify-between">
+    <%= form.submit "Save", class: "px-3 py-2 text-white rounded bg-gray-800 hover:bg-gray-900 cursor-pointer" %>
+  </div>
+<% end %>

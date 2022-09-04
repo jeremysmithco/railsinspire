@@ -2,11 +2,13 @@
 
 <% content_for(:header) do %>
   <div>
+    <div class="mb-1">
+      <%= link_to "Categories", [:categories], class: "block text-[#950000] underline" %>
+    </div>
+
     <h1 class="text-xl font-normal leading-normal text-white">
       <%= @category.name %>
     </h1>
-
-    <%= @category.description %>
   </div>
 
   <div class="flex flex-col items-end">
@@ -15,6 +17,14 @@
         <%= link_to "Edit", [:edit, @category], class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
       <% end %>
     </div>
+  </div>
+<% end %>
+
+<% if @category.description.present? %>
+  <h3 class="text-[#868686] text-sm mb-2">Description</h3>
+
+  <div class="mb-6">
+    <%= @category.description %>
   </div>
 <% end %>
 
