@@ -5,6 +5,10 @@ class TailwindBuilder < ActionView::Helpers::FormBuilder
     "w-full border-gray-300 rounded disabled:bg-gray-100"
   end
 
+  def label(method, text = nil, options={})
+    super(method, text, options.merge(class: "#{options[:class]} block text-sm text-gray-500 mb-2"))
+  end
+
   def text_field(method, options={})
     super(method, options.merge(class: "#{options[:class]} #{default_classes}"))
   end
