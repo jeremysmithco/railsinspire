@@ -11,7 +11,9 @@
 
   <div class="flex flex-col items-end">
     <div class="mb-1">
-      <%= link_to "Edit", [:edit, @sample], class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
+      <% if policy(@sample).edit? %>
+        <%= link_to "Edit", [:edit, @sample], class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
+      <% end %>
     </div>
 
     <div class="text-white">
