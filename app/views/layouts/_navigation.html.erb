@@ -25,9 +25,9 @@
             </button>
 
             <div data-toggle-target="toggleable" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-sm shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-              <%= link_to "Settings", account_root_path, class: "block px-3 py-2 text-sm text-gray-600 hover:bg-gray-100", role: "menuitem" %>
+              <%= link_to "Settings", account_root_path, class: "block px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-100", role: "menuitem" %>
 
-              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-100", role: "menuitem" %>
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "block w-full text-left px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-100", role: "menuitem" %>
             </div>
           </div>
         <% else %>
