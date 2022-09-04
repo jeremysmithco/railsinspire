@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resource :account, only: [:show, :update]
+    resource :avatar, only: [:update, :destroy]
     resource :password, only: [:update]
 
     root to: "accounts#show"

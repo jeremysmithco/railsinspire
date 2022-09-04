@@ -14,7 +14,7 @@ class Account::AccountsController < ApplicationController
 
   def account_params
     params.require(:user).permit(
-      :email, :username
+      :avatar, :email, :username
     )
   end
 end
