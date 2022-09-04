@@ -1,4 +1,25 @@
 module ApplicationHelper
+  def default_meta_tags
+    {
+      separator: "-",
+      site: "RailsInspire",
+      reverse: true,
+      og: {
+        site_name: :site,
+        type: "website",
+        title: :title,
+        description: :description,
+        # image: image_url('opengraph.jpg')
+      },
+      twitter: {
+        card: "photo",
+        title: :title,
+        description: :description,
+        # image: image_url('opengraph.jpg')
+      }
+    }
+  end
+
   def flash_class(level)
     case level
       when "success" then "bg-green-700"

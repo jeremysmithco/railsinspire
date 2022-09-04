@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>
-      <% if content_for? :title %><%= yield :title %> - <% end %>RailsInspire
-    </title>
+    <%= display_meta_tags(default_meta_tags) %>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

@@ -13,6 +13,7 @@ gem "bootsnap", require: false
 gem "devise"
 gem "view_component"
 gem "pundit"
+gem "meta-tags"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
