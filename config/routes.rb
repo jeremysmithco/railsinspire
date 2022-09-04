@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
-  resources :samples, only: [:index, :show] do
+  resources :samples do
     resources :sample_files, path: :files, only: [:show]
   end
   resource :resize, only: [:update]

@@ -1,0 +1,48 @@
+<%= form_with(model: sample, builder: TailwindBuilder, data: { controller: "nested-form", nested_form_wrapper_selector_value: ".nested-form-wrapper" }) do |form| %>
+  <% if sample.errors.any? %>
+    <p>Please review the problems below:</p>
+
+    <ul class="list-disc list-inside mb-4">
+      <% sample.errors.full_messages.each do |msg| %>
+        <li class="ml-4"><span><%= msg.html_safe %></span></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="mb-4 max-w-lg">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+  </div>
+
+  <div>
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, rows: 6 %>
+  </div>
+
+  <hr class="my-6 border-t-[#cecece]">
+
+  <template data-nested-form-target="template">
+    <%= form.fields_for :sample_files, SampleFile.new, child_index: "NEW_RECORD" do |sample_files| %>
+      <%= render "sample_file_fields", form: sample_files %>
+    <% end %>
+  </template>
+
+  <%= form.fields_for :sample_files do |sample_file| %>
+    <%= render "sample_file_fields", form: sample_file %>
+  <% end %>
+
+  <div data-nested-form-target="target"></div>
+
+  <button type="button" data-action="nested-form#add" class="bg-[#cecece] px-3 py-2 rounded">Add File</button>
+
+  <hr class="mt-12 mb-6 border-t-[#cecece]">
+
+  <div class="flex justify-between">
+    <%= form.submit "Save", class: "px-3 py-2 text-white rounded bg-gray-800 hover:bg-gray-900 cursor-pointer" %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<%= content_tag :div, class: "nested-form-wrapper bg-[#cecece] p-4 mb-6 rounded", data: { new_record: form.object.new_record? } do %>
+  <div class="mb-4 max-w-xl">
+    <%= form.label :path %>
+    <%= form.text_field :path %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :contents, "Code" %>
+    <%= form.text_area :contents, rows: 8 %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, rows: 6 %>
+  </div>
+
+  <div class="flex justify-end">
+    <button type="button" data-action="nested-form#remove">Remove</button>
+  </div>
+
+  <%= form.hidden_field :_destroy %>
+<% end %>
