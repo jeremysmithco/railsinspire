@@ -1,0 +1,20 @@
+<% set_meta_tags title: @user.username %>
+
+<% content_for(:header) do %>
+  <div>
+    <div class="mb-1">
+      <%= link_to "Users", [:users], class: "block text-[#950000] underline" %>
+    </div>
+
+    <h1 class="text-xl font-normal leading-normal text-white">
+      @<%= @user.username %>
+    </h1>
+  </div>
+
+  <div class="flex flex-col items-end">
+    <div class="mb-1">
+    </div>
+  </div>
+<% end %>
+
+<%= render @user.samples %>

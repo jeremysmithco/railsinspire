@@ -12,3 +12,5 @@ import ResizeWidthController from "./resize_width_controller";
 application.register("resize-width", ResizeWidthController);
 import ResizeHeightController from "./resize_height_controller";
 application.register("resize-height", ResizeHeightController);
+import ToggleController from "./toggle_controller";
+application.register("toggle", ToggleController);

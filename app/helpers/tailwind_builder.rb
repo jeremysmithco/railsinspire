@@ -13,12 +13,20 @@ class TailwindBuilder < ActionView::Helpers::FormBuilder
     super(method, options.merge(class: "#{options[:class]} #{default_classes}"))
   end
 
+  def email_field(method, options={})
+    super(method, options.merge(class: "#{options[:class]} #{default_classes}"))
+  end
+
   def password_field(method, options={})
     super(method, options.merge(class: "#{options[:class]} #{default_classes}"))
   end
 
   def text_area(method, options={})
     super(method, options.merge(class: "#{options[:class]} #{default_classes}"))
+  end
+
+  def check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
+    super(method, options.merge(class: "#{options[:class]} border-gray-300 rounded disabled:bg-gray-100"), checked_value, unchecked_value)
   end
 
   def select(method, choices = nil, options = {}, html_options = {}, &block)
