@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   end
   resource :resize, only: [:update]
 
+  resources :users, only: [:index]
+  get "@:username", to: "users#show", as: :user
+
   devise_for :users
 
   root to: "home#index"
