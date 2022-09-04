@@ -1,0 +1,42 @@
+<% set_meta_tags title: "Log in" %>
+
+<% content_for(:header) do %>
+  <div>
+    <h1 class="text-xl font-normal leading-normal text-white">
+      Log in
+    </h1>
+  </div>
+
+  <div class="flex flex-col items-end">
+    <p class="text-white">
+      Don’t have an account yet? <%= link_to "Sign up", new_registration_path(resource_name), class: "underline" %>.
+    </p>
+  </div>
+<% end %>
+
+<div class="max-w-lg">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), builder: TailwindBuilder) do |f| %>
+    <div class="mb-4">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+
+      <p class="mt-1">
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-sm underline" %>
+      </p>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="flex items-center mb-4">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, class: "mb-0 ml-2" %>
+      </div>
+    <% end %>
+
+    <%= f.submit "Log in", class: "px-3 py-2 text-white rounded bg-gray-800 hover:bg-gray-900 cursor-pointer" %>
+  <% end %>
+</div>

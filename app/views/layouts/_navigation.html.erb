@@ -4,10 +4,37 @@
       <span class="text-red-500">Rails</span><span class="text-white">Inspire</span>
     <% end %>
 
-    <div class="space-x-8 text-sm">
-      <%= link_to "Categories", [:categories], class: "text-white" %>
-      <%= link_to "Libraries", "", class: "text-white" %>
-      <%= link_to "About", "", class: "text-white" %>
+    <div class="hidden md:block">
+      <div class="flex items-center space-x-4">
+        <%= link_to "Users", users_path, class: "text-white text-sm px-3 py-1" %>
+        <%= link_to "Categories", categories_path, class: "text-white text-sm px-3 py-1" %>
+
+        <% if user_signed_in? %>
+          <div class="relative" data-controller="toggle" data-toggle-toggle-class="hidden">
+            <button data-action="click->toggle#toggle click@window->toggle#hide" class="max-w-xs flex space-x-1 items-center focus:outline-none" id="user-menu" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+
+              <%# image_tag user_avatar(current_user), class: "h-8 w-8 rounded-full" %>
+
+              <div class="text-white text-sm">
+                Account
+              </div>
+
+              <div class="text-white">
+                <%= render "icons/heroicons/solid/chevron-down" %>
+              </div>
+            </button>
+
+            <div data-toggle-target="toggleable" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-sm shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+              <%= link_to "Settings", "", class: "block px-3 py-2 text-sm text-gray-600 hover:bg-gray-100", role: "menuitem" %>
+
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-100", role: "menuitem" %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "text-white text-sm px-3 py-1" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>

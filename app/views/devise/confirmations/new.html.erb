@@ -1,0 +1,25 @@
+<% set_meta_tags title: "Resend confirmation" %>
+
+<% content_for(:header) do %>
+  <div>
+    <h1 class="text-xl font-normal leading-normal text-white">
+      Resend confirmation
+    </h1>
+  </div>
+
+  <div class="flex flex-col items-end">
+  </div>
+<% end %>
+
+<div class="max-w-lg">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), builder: TailwindBuilder, html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="mb-4">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
+
+    <%= f.submit "Resend confirmation instructions", class: "px-3 py-2 text-white rounded bg-gray-800 hover:bg-gray-900 cursor-pointer" %>
+  <% end %>
+</div>

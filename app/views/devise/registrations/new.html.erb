@@ -1,0 +1,43 @@
+<% set_meta_tags title: "Sign up" %>
+
+<% content_for(:header) do %>
+  <div>
+    <h1 class="text-xl font-normal leading-normal text-white">
+      Sign up
+    </h1>
+  </div>
+
+  <div class="flex flex-col items-end">
+    <p class="text-white">
+      Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: "underline" %>.
+    </p>
+  </div>
+<% end %>
+
+<div class="max-w-lg">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), builder: TailwindBuilder) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="mb-4">
+      <%= f.label :username %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <%= f.submit "Sign up", class: "px-3 py-2 text-white rounded bg-gray-800 hover:bg-gray-900 cursor-pointer" %>
+  <% end %>
+</div>
