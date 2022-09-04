@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def user_avatar(user, size: 100)
+    if user.avatar.attached?
+      user.avatar.variant(resize_to_limit: [size, size])
+    else
+      "avatar.svg"
+    end
+  end
+
   def default_meta_tags
     {
       separator: "-",

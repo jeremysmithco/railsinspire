@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :samples
+  has_one_attached :avatar
 
   validates :username, presence: true, username: true, uniqueness: true
 end

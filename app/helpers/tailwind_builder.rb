@@ -9,6 +9,10 @@ class TailwindBuilder < ActionView::Helpers::FormBuilder
     super(method, text, options.merge(class: "#{options[:class]} block text-sm text-gray-500 mb-2"))
   end
 
+  def file_field(method, options = {})
+    super(method, options.merge(class: "#{options[:class]} w-full p-2 bg-gray-300 rounded disabled:bg-gray-100"))
+  end
+
   def text_field(method, options={})
     super(method, options.merge(class: "#{options[:class]} #{default_classes}"))
   end
