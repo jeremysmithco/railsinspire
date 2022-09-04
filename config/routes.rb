@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories, only: [:index, :show]
+  resources :categories
   resources :samples do
     resources :sample_files, path: :files, only: [:show]
   end

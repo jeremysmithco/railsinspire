@@ -7,6 +7,7 @@ class SamplesController < ApplicationController
   def show
     @sample = Sample.find(params[:id])
     @sample_file = @sample.sample_files.first
+    authorize @sample
 
     render "sample_files/show"
   end
@@ -14,14 +15,12 @@ class SamplesController < ApplicationController
   def new
     @sample = current_user.samples.new
     @sample.sample_files.new
-  end
-
-  def edit
-    @sample = current_user.samples.find(params[:id])
+    authorize @sample
   end
 
   def create
     @sample = current_user.samples.new(sample_params)
+    authorize @sample
 
     if @sample.save
       redirect_to @sample
@@ -32,10 +31,12 @@ class SamplesController < ApplicationController
 
   def edit
     @sample = current_user.samples.find(params[:id])
+    authorize @sample
   end
 
   def update
     @sample = current_user.samples.find(params[:id])
+    authorize @sample
 
     if @sample.update(sample_params)
       redirect_to @sample
