@@ -5,8 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :samples
-
-  def admin?
-    false
-  end
 end
