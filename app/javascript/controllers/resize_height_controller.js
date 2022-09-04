@@ -12,9 +12,6 @@ export default class extends Controller {
   }
 
   resize({ height }) {
-    console.log(height);
-    console.log(this.currentHeightValue);
-
     if (height == this.currentHeightValue) return;
 
     this.update(height);
