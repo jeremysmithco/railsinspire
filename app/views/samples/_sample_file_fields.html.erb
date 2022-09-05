@@ -1,7 +1,10 @@
 <%= content_tag :div, class: "nested-form-wrapper bg-[#cecece] p-4 mb-6 rounded", data: { new_record: form.object.new_record? } do %>
   <div class="mb-4 max-w-xl">
     <%= form.label :path %>
-    <%= form.text_field :path %>
+    <div class="flex items-center space-x-2">
+      <div class="shrink-0 text-sm text-neutral-500">Rails.root / </div>
+      <%= form.text_field :path, placeholder: "app/models/user.rb" %>
+    </div>
   </div>
 
   <div class="mb-4">

@@ -2,6 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "rails.scss";
+
 .font-recursive-mono {
   font-variation-settings: "MONO" 1;
 }

@@ -2,7 +2,7 @@
 
 class TailwindBuilder < ActionView::Helpers::FormBuilder
   def default_classes
-    "w-full border-neutral-300 rounded disabled:bg-neutral-100"
+    "w-full border-neutral-300 rounded disabled:bg-neutral-100 placeholder-neutral-300"
   end
 
   def label(method, text = nil, options={})
