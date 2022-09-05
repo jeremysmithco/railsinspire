@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_183125) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_04_195045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "sample_status", ["private", "public"]
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -67,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_183125) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "status", default: "private", null: false, enum_type: "sample_status"
     t.index ["category_id"], name: "index_samples_on_category_id"
     t.index ["user_id"], name: "index_samples_on_user_id"
   end

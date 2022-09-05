@@ -1,4 +1,6 @@
 class Sample < ApplicationRecord
+  enum :status, { private: "private", public: "public" }, prefix: :status
+
   belongs_to :category
   belongs_to :user
   has_many :sample_files
