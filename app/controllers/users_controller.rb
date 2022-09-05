@@ -8,5 +8,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:username])
     authorize @user, policy_class: UserProfilePolicy
+    @samples = @user.samples.status_public
   end
 end

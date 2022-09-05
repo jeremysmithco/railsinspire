@@ -14,9 +14,16 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="mb-4 max-w-lg">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+  <div class="flex space-x-4">
+    <div class="mb-4">
+      <%= form.label :category_id %>
+      <%= form.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :status %>
+      <%= form.select :status, Sample.statuses.map { |key, _| [key.titleize, key] } %>
+    </div>
   </div>
 
   <div>
