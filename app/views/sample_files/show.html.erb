@@ -19,7 +19,10 @@
     </div>
 
     <div class="text-white">
-      Curated <%= relative_time @sample.created_at %> ago
+      Curated <%= relative_time @sample.created_at %> ago by
+      <%= link_to user_path(@sample.user.username) do %>
+        @<span class="underline"><%= @sample.user.username %></span>
+      <% end %>
     </div>
   </div>
 <% end %>
@@ -33,5 +36,5 @@
 <% end %>
 
 <%= turbo_frame_tag "editor", data: { turbo_action: "advance" } do %>
-  <%= render "sample_files/editor", sample_files: @sample.sample_files, sample_file: @sample_file %>
+  <%= render "sample_files/editor", sample_files: @sample.sample_files, sample_file: @sample_file if @sample_file.present? %>
 <% end %>

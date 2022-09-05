@@ -1,6 +1,6 @@
 <div class="flex">
   <div class="text-neutral-500 mr-4 text-right">
-    <% (1..sample_file.contents.lines.count).each do |l| %>
+    <% (1..sample_file.lines_or_default).each do |l| %>
       <%= l %><br>
     <% end %>
   </div>
