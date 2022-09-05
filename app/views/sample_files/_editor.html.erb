@@ -9,7 +9,7 @@
     <% end %>
   <% end %>
 
-  <%= tag.div class: "bg-[#454545] mb-3 overflow-y-scroll resize-x",
+  <%= tag.div class: "bg-[#454545] mb-3 overflow-y-scroll resize-x min-w-[100px] max-w-[800px]",
               style: "width: #{contents_width_or_default}px;",
               data: { controller: "resize-width", resize_width_url_value: resize_path, resize_width_setting_value: "contents_width", resize_width_current_width_value: contents_width_or_default } do %>
     <%= tag.div class: "p-6 text-sm leading-loose text-white font-recursive-mono" do %>
