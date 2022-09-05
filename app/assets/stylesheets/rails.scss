@@ -1,0 +1,11 @@
+.field_with_errors {
+  @apply inline w-full;
+
+  label {
+    @apply text-red-500;
+  }
+
+  input, select, textarea {
+    @apply border-red-500;
+  }
+}
