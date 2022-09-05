@@ -6,9 +6,15 @@
       <%= link_to "Users", [:users], class: "block text-[#950000] underline" %>
     </div>
 
-    <h1 class="text-xl font-normal leading-normal text-white">
-      @<%= @user.username %>
-    </h1>
+    <div class="flex items-center space-x-1">
+      <div>
+        <%= image_tag user_avatar(@user), class: "h-12 w-12 bg-white border-2 border-white rounded-full" %>
+      </div>
+
+      <h1 class="text-xl font-normal leading-normal text-white">
+        @<%= @user.username %>
+      </h1>
+    </div>
   </div>
 
   <div class="flex flex-col items-end">
@@ -17,4 +23,6 @@
   </div>
 <% end %>
 
-<%= render @samples %>
+<div class="grid grid-cols-3 gap-6">
+  <%= render @samples %>
+</div>

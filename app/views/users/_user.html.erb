@@ -1,3 +1,15 @@
-<%= link_to user_path(user.username) do %>
-  @<%= user.username %>
+<%= link_to user_path(user.username), class: "bg-white rounded shadow-sm px-4 py-3" do %>
+  <div class="flex-col justify-between">
+    <div class="mb-2">
+      <%= image_tag user_avatar(user), class: "h-12 w-12 bg-white border-2 border-white rounded-full" %>
+    </div>
+
+    <div class="mb-4 text-[#950000]">
+      @<span class="underline"><%= user.username %></span>
+    </div>
+
+    <div class="text-xs text-neutral-500">
+      <%= user.samples.status_public.size %> samples
+    </div>
+  </div>
 <% end %>

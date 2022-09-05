@@ -1,3 +1,16 @@
-<%= link_to sample do %>
-  <%= sample.title %>
+<%= link_to sample, class: "bg-white rounded shadow-sm px-4 py-3" do %>
+  <div class="flex-col justify-between">
+    <div class="mb-4 text-[#950000] underline">
+      <%= sample.title %>
+    </div>
+
+    <div class="mb-4 text-sm text-neutral-700 h-10 line-clamp-2">
+      <%= sample.description %>
+    </div>
+
+    <div class="text-xs text-neutral-500">
+      Curated <%= relative_time sample.created_at %> ago by
+      @<span class="underline"><%= sample.user.username %></span>
+    </div>
+  </div>
 <% end %>
