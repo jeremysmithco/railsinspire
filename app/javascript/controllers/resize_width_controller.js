@@ -12,7 +12,9 @@ export default class extends Controller {
   }
 
   resize({ width }) {
+    if (window.innerWidth < 768) return;
     if (width == this.currentWidthValue) return;
+    if (width == 0) return;
 
     this.update(width);
   }
