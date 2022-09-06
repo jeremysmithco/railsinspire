@@ -18,14 +18,14 @@
             data: { controller: "resize-height", resize_height_url_value: resize_path, resize_height_setting_value: "editor_height", resize_height_current_height_value: editor_height_or_default } do %>
   <%= tag.div id: "editor-top", class: "flex lg:hidden bg-[#333] rounded-t" do %>
     <%= tag.div class: "flex-1 px-6 py-4 text-xs text-[#D6D6D6]" do %>
-      <%= render "sample_files/top", sample_file: sample_file, sample_files: sample_files %>
+      <%= render "sample_files/top_menu", sample_file: sample_file, sample_files: sample_files %>
     <% end %>
   <% end %>
 
   <%= tag.div id: "editor-menu", class: "hidden lg:flex bg-[#333] rounded-t-l resize-x min-w-[100px] max-w-[400px] lg:mb-3 overflow-y-scroll",
               data: { controller: "resize-width", resize_width_url_value: resize_path, resize_width_setting_value: "menu_width", resize_width_current_width_value: menu_width_or_default } do %>
     <%= tag.div class: "px-2 py-6 text-xs text-[#D6D6D6]" do %>
-      <%= render "sample_files/menu", sample_files: sample_files %>
+      <%= render "sample_files/left_menu", sample_files: sample_files %>
     <% end %>
   <% end %>
 
