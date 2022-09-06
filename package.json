@@ -11,6 +11,7 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.4",
     "esbuild": "^0.15.5",
+    "esbuild-rails": "^1.0.3",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
     "stimulus-rails-nested-form": "^4.0.0",
@@ -19,7 +20,7 @@
   },
   "version": "0.1.0",
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds",
+    "build": "node esbuild.config.js",
     "build:css": "postcss ./app/assets/stylesheets/application.css -o ./app/assets/builds/application.css"
   },
   "devDependencies": {
