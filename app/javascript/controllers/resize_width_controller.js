@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   resize({ width }) {
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth < this.minBreakpointSize) return;
     if (width == this.currentWidthValue) return;
     if (width == 0) return;
 
@@ -30,5 +30,8 @@ export default class extends Controller {
       this.currentWidthValue = width;
     }
   }
-}
 
+  get minBreakpointSize() {
+    return 768;
+  }
+}
