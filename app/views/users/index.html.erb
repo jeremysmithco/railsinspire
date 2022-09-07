@@ -1,16 +1,9 @@
 <% set_meta_tags title: "Users" %>
 
 <% content_for(:header) do %>
-  <div>
-    <h1 class="text-xl font-normal leading-normal text-white">
-      Users
-    </h1>
-  </div>
-
-  <div class="flex flex-col items-end">
-    <div class="mb-1">
-    </div>
-  </div>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_title.with_content("Users") %>
+  <% end %>
 <% end %>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

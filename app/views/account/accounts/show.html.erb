@@ -1,14 +1,9 @@
 <% set_meta_tags title: "Account Settings" %>
 
 <% content_for(:header) do %>
-  <div>
-    <h1 class="text-xl font-normal leading-normal text-white">
-      Account Settings
-    </h1>
-  </div>
-
-  <div class="flex flex-col items-end">
-  </div>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_title.with_content("Account Settings") %>
+  <% end %>
 <% end %>
 
 <div class="max-w-lg">
