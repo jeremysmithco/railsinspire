@@ -1,0 +1,17 @@
+<div class="relative" data-controller="toggle" data-toggle-toggle-class="hidden">
+  <button data-action="click->toggle#toggle click@window->toggle#hide" class="flex space-x-1 items-center focus:outline-none" id="user-menu" aria-haspopup="true">
+    <span class="sr-only">Open file menu</span>
+
+    <%= sample_file.path %>
+
+    <div class="text-white">
+      <%= render "icons/heroicons/solid/chevron-down" %>
+    </div>
+  </button>
+
+  <div data-toggle-target="toggleable" class="hidden origin-top-left absolute left-0 mt-2 rounded-sm shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+    <% sample_files.each do |file| %>
+      <%= link_to file.path, [file.sample, file], class: "block px-3 py-2 text-xs text-neutral-600 hover:bg-neutral-100", role: "menuitem" %>
+    <% end %>
+  </div>
+</div>

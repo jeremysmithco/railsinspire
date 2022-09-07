@@ -12,7 +12,9 @@ export default class extends Controller {
   }
 
   resize({ height }) {
+    if (window.innerWidth < this.minBreakpointSize) return;
     if (height == this.currentHeightValue) return;
+    if (height == 0) return;
 
     this.update(height);
   }
@@ -27,5 +29,9 @@ export default class extends Controller {
     if (response.ok) {
       this.currentHeightValue = height;
     }
+  }
+
+  get minBreakpointSize() {
+    return 768;
   }
 }

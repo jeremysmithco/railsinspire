@@ -18,7 +18,7 @@
       <% end %>
     </div>
 
-    <div class="text-white">
+    <div class="text-white text-sm">
       Curated <%= relative_time @sample.created_at %> ago by
       <%= link_to user_path(@sample.user.username) do %>
         @<span class="underline"><%= @sample.user.username %></span>
@@ -30,7 +30,7 @@
 <% if @sample.description.present? %>
   <h3 class="text-[#868686] text-sm mb-2">Description</h3>
 
-  <div>
+  <div class="max-w-3xl">
     <%= @sample.description %>
   </div>
 <% end %>
