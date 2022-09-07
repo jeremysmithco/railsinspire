@@ -9,11 +9,13 @@
         <div class="flex items-center space-x-1">
           <%= link_to "Users", users_path, class: "text-white text-sm px-2 py-1" %>
           <%= link_to "Categories", categories_path, class: "text-white text-sm px-2 py-1" %>
-          <%= link_to [:new, :sample], class: "text-white text-sm px-2 py-1" do %>
-            <%= render "icons/heroicons/solid/plus-sm" %>
-          <% end %>
 
           <% if user_signed_in? %>
+            <%= link_to [:new, :sample], class: "flex space-x-1 text-white text-sm px-2 py-1" do %>
+              <%= render "icons/heroicons/solid/plus-sm" %>
+              Add
+            <% end %>
+
             <div class="relative" data-controller="toggle" data-toggle-toggle-class="hidden">
               <button data-action="click->toggle#toggle click@window->toggle#hide" class="max-w-xs flex space-x-1 items-center focus:outline-none" id="user-menu" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>
@@ -52,7 +54,15 @@
     <div data-toggle-target="toggleable" class="hidden bg-white rounded my-4 p-2">
       <div class="space-y-1">
         <%= link_to "Users", users_path, class: "block px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-100" %>
+
         <%= link_to "Categories", categories_path, class: "block px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-100" %>
+
+        <% if user_signed_in? %>
+          <%= link_to [:new, :sample], class: "flex space-x-1 px-3 py-2 text-sm text-neutral-600 hover:bg-neutral-100" do %>
+            <%= render "icons/heroicons/solid/plus-sm" %>
+            Add
+          <% end %>
+        <% end %>
       </div>
       <div class="border-t border-gray-300 mt-3">
         <% if user_signed_in? %>
