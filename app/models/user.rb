@@ -8,4 +8,12 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :username, presence: true, username: true, uniqueness: true
+
+  def active_for_authentication?
+    super && active?
+  end
+
+  def active?
+    deactivated_at.nil?
+  end
 end
