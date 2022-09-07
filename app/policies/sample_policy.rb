@@ -11,7 +11,7 @@ class SamplePolicy < ApplicationPolicy
   end
 
   def create?
-    owner?
+    true
   end
 
   def update?
