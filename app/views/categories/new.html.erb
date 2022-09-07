@@ -1,11 +1,9 @@
 <% set_meta_tags title: "New Category" %>
 
 <% content_for(:header) do %>
-  <div>
-    <h1 class="text-xl font-normal leading-normal text-white">
-      New Category
-    </h1>
-  </div>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_title.with_content("New Category") %>
+  <% end %>
 <% end %>
 
 <div class="max-w-5xl">

@@ -1,23 +1,19 @@
 <% set_meta_tags title: @category.name, description: @category.description %>
 
 <% content_for(:header) do %>
-  <div>
-    <div class="mb-1">
-      <%= link_to "Categories", [:categories], class: "block text-[#950000] underline" %>
-    </div>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_parent do %>
+      <%= link_to "Categories", [:categories] %>
+    <% end %>
 
-    <h1 class="text-xl font-normal leading-normal text-white">
-      <%= @category.name %>
-    </h1>
-  </div>
-
-  <div class="flex flex-col items-end">
-    <div class="mb-1">
+    <% c.with_actions do %>
       <% if policy(@category).edit? %>
         <%= link_to "Edit", [:edit, @category], class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
       <% end %>
-    </div>
-  </div>
+    <% end %>
+
+    <% c.with_title.with_content(@category.name) %>
+  <% end %>
 <% end %>
 
 <% if @category.description.present? %>

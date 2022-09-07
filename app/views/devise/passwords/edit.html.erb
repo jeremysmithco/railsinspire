@@ -1,14 +1,9 @@
-<% set_meta_tags title: "Change password" %>
+<% set_meta_tags title: "Change Password" %>
 
 <% content_for(:header) do %>
-  <div>
-    <h1 class="text-xl font-normal leading-normal text-white">
-      Change password
-    </h1>
-  </div>
-
-  <div class="flex flex-col items-end">
-  </div>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_title.with_content("Change Password") %>
+  <% end %>
 <% end %>
 
 <div class="max-w-lg">
