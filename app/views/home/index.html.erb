@@ -3,7 +3,23 @@
 <% content_for(:header) do %>
   <%= render HeaderComponent.new do |c| %>
     <% c.with_title.with_content("A curated collection of code samples from Ruby on Rails projects.") %>
+
+    <% c.with_details do %>
+      Don’t have an account yet? <%= link_to "Sign up", new_registration_path(:user), class: "underline" %>.
+    <% end %>
   <% end %>
 <% end %>
 
-<p>Hello there.</p>
+<h3 class="text-neutral-700 mb-6">Latest Samples</h3>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <%= render @samples %>
+</div>
+
+<hr class="my-10 border-t-[#cecece]">
+
+<h3 class="text-neutral-700 mb-6">Categories</h3>
+
+<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+  <%= render collection: @categories, partial: "categories/category_mini", as: :category %>
+</div>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @users = User.where.not(username: "")
+    @users = User.all.includes(:samples).references(:samples).merge(Sample.status_public)
   end
 
   def show

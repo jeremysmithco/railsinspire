@@ -9,7 +9,7 @@
     </div>
 
     <div class="text-xs text-neutral-500">
-      <%= user.samples.status_public.size %> samples
+      <%= pluralize(user.samples.status_public.size, "sample") %>
     </div>
   </div>
 <% end %>

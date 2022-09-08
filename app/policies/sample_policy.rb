@@ -7,7 +7,7 @@ class SamplePolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    public? || owner?
   end
 
   def create?
@@ -23,6 +23,10 @@ class SamplePolicy < ApplicationPolicy
   end
 
   private
+
+  def public?
+    @sample.status_public?
+  end
 
   def owner?
     sample.user == user
