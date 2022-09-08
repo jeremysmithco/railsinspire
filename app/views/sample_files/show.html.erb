@@ -12,7 +12,18 @@
       <% end %>
     <% end %>
 
-    <% c.with_title.with_content(@sample.title) %>
+    <% c.with_title do %>
+      <div class="flex-col space-x-4">
+        <%= @sample.title %>
+
+        <% if @sample.status_private? %>
+          <div class="flex space-x-1">
+            <%= render "icons/heroicons/solid/lock-closed" %>
+            <div class="text-sm">Private</div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <% c.with_details do %>
       Curated <%= relative_time @sample.created_at %> ago by
