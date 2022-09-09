@@ -1,0 +1,11 @@
+<% set_meta_tags title: "Error" %>
+
+<% content_for(:header) do %>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_title.with_content("Error") %>
+  <% end %>
+<% end %>
+
+<p class="text-neutral-700 max-w-3xl">
+  The page you were looking for doesn’t exist. You may have mistyped the address or the page may have moved.
+</p>

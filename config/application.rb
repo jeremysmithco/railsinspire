@@ -22,6 +22,7 @@ module Railsinspire
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.exceptions_app = self.routes
 
     # Configuration for the application, engines, and railties goes here.
     #

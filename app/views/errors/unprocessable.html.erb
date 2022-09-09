@@ -1,0 +1,11 @@
+<% set_meta_tags title: "Error" %>
+
+<% content_for(:header) do %>
+  <%= render HeaderComponent.new do |c| %>
+    <% c.with_title.with_content("Error") %>
+  <% end %>
+<% end %>
+
+<p class="text-neutral-700 max-w-3xl">
+  This site requires cookies. Please make sure you have cookies enabled for this site. If you already have cookies enabled, it may be that you tried to change something you didn’t have access to.
+</p>
