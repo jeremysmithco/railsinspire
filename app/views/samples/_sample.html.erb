@@ -16,6 +16,12 @@
       <%= sample.description %>
     </div>
 
+    <div class="bg-[#454545] p-4 rounded mb-4 text-xs leading-relaxed text-white font-recursive-mono">
+      <div class="overflow-hidden h-24" data-controller="highlight">
+        <pre><%= sample.sample_files.first.first_lines(5) %></pre>
+      </div>
+    </div>
+
     <div class="text-xs text-neutral-500">
       Curated <%= relative_time sample.created_at %> ago by
       @<span class="underline"><%= sample.user.username %></span>

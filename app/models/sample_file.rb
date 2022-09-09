@@ -3,7 +3,13 @@ class SampleFile < ApplicationRecord
 
   validates :path, presence: true, file_path: true
 
-  def lines_or_default
+  def first_lines(number)
+    return "" if contents.blank?
+
+    contents.each_line.take(number).join
+  end
+
+  def line_count_or_default
     return 1 if contents.blank?
 
     contents.lines.count
