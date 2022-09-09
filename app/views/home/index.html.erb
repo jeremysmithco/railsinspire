@@ -5,7 +5,9 @@
     <% c.with_title.with_content("A curated collection of code samples from Ruby on Rails projects.") %>
 
     <% c.with_details do %>
-      Don’t have an account yet? <%= link_to "Sign up", new_registration_path(:user), class: "underline" %>.
+      <% if !user_signed_in? %>
+        Don’t have an account yet? <%= link_to "Sign up", new_registration_path(:user), class: "underline" %>.
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
