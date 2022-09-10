@@ -16,6 +16,7 @@ gem "pundit"
 gem "meta-tags"
 gem "image_processing", ">= 1.2"
 gem "lograge"
+gem "postmark-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
