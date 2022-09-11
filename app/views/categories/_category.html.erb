@@ -5,7 +5,7 @@
     </div>
 
     <div class="mb-4 text-sm text-neutral-700 h-10 line-clamp-2">
-      <%= category.description %>
+      <%= strip_markdown(category.description).truncate_words(50) %>
     </div>
 
     <div class="text-xs text-neutral-500">
