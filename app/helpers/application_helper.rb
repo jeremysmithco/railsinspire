@@ -17,13 +17,13 @@ module ApplicationHelper
         type: "website",
         title: :title,
         description: :description,
-        # image: image_url('opengraph.jpg')
+        image: image_url("opengraph.png")
       },
       twitter: {
         card: "photo",
         title: :title,
         description: :description,
-        # image: image_url('opengraph.jpg')
+        image: image_url("opengraph.png")
       }
     }
   end
