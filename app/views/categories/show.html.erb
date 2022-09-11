@@ -1,4 +1,4 @@
-<% set_meta_tags title: @category.name, description: @category.description %>
+<% set_meta_tags title: @category.name, description: strip_markdown(@category.description) %>
 
 <% content_for(:header) do %>
   <%= render HeaderComponent.new do |c| %>
@@ -19,8 +19,8 @@
 <% if @category.description.present? %>
   <h3 class="text-[#868686] text-sm mb-2">Description</h3>
 
-  <div class="mb-6">
-    <%= @category.description %>
+  <div class="prose prose-blue max-w-4xl mb-6" data-turbo="false">
+    <%= markdown @category.description %>
   </div>
 <% end %>
 

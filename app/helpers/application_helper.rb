@@ -1,4 +1,24 @@
+require 'default_renderer'
+require 'preview_renderer'
+
 module ApplicationHelper
+  def markdown(content)
+    return "" if content.blank?
+
+    sanitize Redcarpet::Markdown.new(
+      DefaultRenderer.new(hard_wrap: true, with_toc_data: true),
+      no_intra_emphasis: true, tables: true, autolink: true,
+      gh_blockcode: true, fenced_code_blocks: true,
+      disable_indented_code_blocks: true
+    ).render(content)
+  end
+
+  def strip_markdown(content)
+    return "" if content.blank?
+
+    Redcarpet::Markdown.new(PreviewRenderer).render(content)
+  end
+
   def user_avatar(user, size: 100)
     if user.avatar.attached?
       user.avatar.variant(resize_to_limit: [size, size])

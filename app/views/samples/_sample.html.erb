@@ -13,7 +13,7 @@
     </div>
 
     <div class="mb-4 text-sm text-neutral-700 h-10 line-clamp-2">
-      <%= sample.description %>
+      <%= strip_markdown(sample.description).truncate_words(50) %>
     </div>
 
     <div class="bg-[#454545] p-4 rounded mb-4 text-xs leading-relaxed text-white font-recursive-mono">
