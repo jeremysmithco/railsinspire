@@ -4,7 +4,7 @@ class FileTree
   end
 
   def tree
-    files.sort
+    files.sort_by { |file| file.path }
          .map { |file| path_hash(file.path.split("/"), file) }
          .reduce({}) { |full, path| full.deep_merge(path) }
   end
