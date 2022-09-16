@@ -13,7 +13,7 @@ class CreateSampleFileImage
       svg_file.write(svg_string)
 
       pipeline = ImageProcessing::Vips
-      pipeline.source(svg_file).convert("png").call(destination: "sample_file.png")
+      pipeline.source(svg_file).convert("png").call
     ensure
        svg_file.close
        svg_file.unlink
