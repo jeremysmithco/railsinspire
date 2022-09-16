@@ -18,7 +18,7 @@
 
     <div class="bg-[#454545] p-4 rounded mb-4 text-xs leading-relaxed text-white font-recursive-mono">
       <div class="overflow-hidden h-24" data-controller="highlight">
-        <pre><%= sample.sample_files.first.first_lines(5) %></pre>
+        <pre><%= sample.sample_files.first.first_lines(5).join %></pre>
       </div>
     </div>
 

@@ -6,7 +6,7 @@ class SampleFile < ApplicationRecord
   def first_lines(number)
     return "" if contents.blank?
 
-    contents.each_line.take(number).join
+    contents.each_line.take(number)
   end
 
   def line_count_or_default
