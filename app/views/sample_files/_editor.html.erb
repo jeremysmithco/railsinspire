@@ -22,14 +22,14 @@
     <% end %>
   <% end %>
 
-  <%= tag.div id: "editor-menu", class: "hidden lg:flex bg-[#333] rounded-t-l resize-x min-w-[100px] max-w-[400px] lg:mb-3 overflow-y-scroll",
+  <%= tag.div id: "editor-menu", class: "hidden lg:flex bg-[#20252C] rounded-t-l resize-x min-w-[100px] max-w-[400px] lg:mb-3 overflow-y-scroll",
               data: { controller: "resize-width", resize_width_url_value: resize_path, resize_width_setting_value: "menu_width", resize_width_current_width_value: menu_width_or_default } do %>
-    <%= tag.div class: "px-2 py-6 text-xs text-[#D6D6D6]" do %>
+    <%= tag.div class: "px-2 py-6 text-xs text-[#9DA5B6]" do %>
       <%= render "sample_files/left_menu", sample_files: sample_files %>
     <% end %>
   <% end %>
 
-  <%= tag.div id: "editor-contents", class: "w-full lg:w-auto bg-[#454545] lg:mb-3 lg:overflow-y-scroll resize-x lg:min-w-[100px] lg:max-w-[800px]",
+  <%= tag.div id: "editor-contents", class: "w-full lg:w-auto bg-[#272C35] lg:mb-3 lg:overflow-y-scroll resize-x lg:min-w-[100px] lg:max-w-[800px]",
               data: { controller: "resize-width", resize_width_url_value: resize_path, resize_width_setting_value: "contents_width", resize_width_current_width_value: contents_width_or_default } do %>
     <%= tag.div class: "p-6 text-sm leading-loose text-white font-recursive-mono" do %>
       <%= render "sample_files/contents", sample_file: sample_file %>

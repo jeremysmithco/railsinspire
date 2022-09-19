@@ -228,6 +228,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rouge (4.0.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -305,6 +306,7 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.3)
   redcarpet
+  rouge
   selenium-webdriver
   sentry-rails
   sentry-ruby

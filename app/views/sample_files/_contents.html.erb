@@ -1,11 +1,11 @@
 <div class="flex">
-  <div class="text-neutral-500 mr-4 text-right">
+  <div class="text-[#485362] mr-4 text-right">
     <% (1..sample_file.line_count_or_default).each do |l| %>
       <%= l %><br>
     <% end %>
   </div>
 
-  <div class="overflow-x-scroll" data-controller="highlight">
-    <pre><%= sample_file.contents %></pre>
+  <div class="overflow-x-scroll">
+    <pre><%= syntax_higlight(sample_file.contents, sample_file.path).html_safe %></pre>
   </div>
 </div>
