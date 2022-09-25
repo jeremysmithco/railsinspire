@@ -1,4 +1,13 @@
-<% set_meta_tags title: @sample.title, description: strip_markdown(@sample.description) %>
+<% set_meta_tags(
+  title: @sample.title,
+  description: strip_markdown(@sample.description),
+  og: {
+    image: (rails_blob_url(@sample_file.open_graph_image) if @sample_file.open_graph_image.attached?)
+  },
+  twitter: {
+    image: (rails_blob_url(@sample_file.open_graph_image) if @sample_file.open_graph_image.attached?)
+  }
+) %>
 
 <% content_for(:header) do %>
   <%= render HeaderComponent.new do |c| %>

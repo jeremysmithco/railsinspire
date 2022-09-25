@@ -1,7 +1,15 @@
 require 'default_renderer'
 require 'preview_renderer'
+require 'one_dark'
+require 'svg_inline'
 
 module ApplicationHelper
+  def syntax_higlight(content, path, formatter = "html_inline")
+    formatter = Rouge::Formatter.find(formatter).new("one-dark")
+    lexer = Rouge::Lexer.guess(filename: path)
+    formatter.format(lexer.lex(content))
+  end
+
   def markdown(content)
     return "" if content.blank?
 

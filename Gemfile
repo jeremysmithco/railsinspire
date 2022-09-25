@@ -23,6 +23,7 @@ gem "sentry-rails"
 gem "jsbundling-rails"
 gem "cssbundling-rails"
 gem "redcarpet"
+gem "rouge"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
