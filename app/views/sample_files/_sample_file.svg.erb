@@ -24,7 +24,7 @@
                     <tspan x="190" y="<%= 364 + (i * 32) %>"><%= line.html_safe %></tspan>
                 <% end %>
             </text>
-            <text id="class" font-family="RecMonoLinear-Regular, Rec Mono Linear" font-size="24" font-weight="normal" line-spacing="32" fill="#737373">
+            <text id="class" font-family="RecMonoLinear-Regular, Rec Mono Linear" font-size="24" font-weight="normal" line-spacing="32" fill="#485362">
                 <% (1..@sample_file.line_count_or_default).each do |line| %>
                     <tspan x="140.6" y="<%= 364 + ((line - 1) * 32) %>"><%= line %></tspan>
                 <% end %>
