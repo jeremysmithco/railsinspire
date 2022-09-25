@@ -20,7 +20,7 @@
         </text>
         <g id="contents" clip-path="url(#editor)">
             <text id="class" font-family="RecMonoLinear-Regular, Rec Mono Linear" font-size="24" font-weight="normal" line-spacing="32" fill="#FFFFFF" xml:space="preserve">
-                <% syntax_higlight(@sample_file.contents, @sample_file.path).each_line.with_index do |line, i| %>
+                <% syntax_higlight(@sample_file.contents, @sample_file.path, "svg_inline").each_line.with_index do |line, i| %>
                     <tspan x="190" y="<%= 364 + (i * 32) %>"><%= line.html_safe %></tspan>
                 <% end %>
             </text>

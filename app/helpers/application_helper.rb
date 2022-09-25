@@ -4,8 +4,8 @@ require 'one_dark'
 require 'svg_inline'
 
 module ApplicationHelper
-  def syntax_higlight(content, path)
-    formatter = Rouge::Formatters::SVGInline.new("one-dark")
+  def syntax_higlight(content, path, formatter = "html_inline")
+    formatter = Rouge::Formatter.find(formatter).new("one-dark")
     lexer = Rouge::Lexer.guess(filename: path)
     formatter.format(lexer.lex(content))
   end
