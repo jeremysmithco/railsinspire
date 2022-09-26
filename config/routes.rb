@@ -1,4 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  admin_constraint = lambda do |request|
+    request.env["warden"].authenticate? && request.env["warden"].user.admin
+  end
+
+  mount Sidekiq::Web => "/admin/sidekiq", constraints: admin_constraint
+
   resources :categories
   resources :samples do
     resources :sample_files, path: :files, only: [:show]
