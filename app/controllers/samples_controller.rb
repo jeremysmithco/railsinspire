@@ -20,6 +20,7 @@ class SamplesController < ApplicationController
     authorize @sample
 
     if @sample.save
+      ProcessSampleJob.perform_async(@sample.id)
       redirect_to @sample
     else
       render :new, status: :unprocessable_entity
@@ -36,6 +37,7 @@ class SamplesController < ApplicationController
     authorize @sample
 
     if @sample.update(sample_params)
+      ProcessSampleJob.perform_async(@sample.id)
       redirect_to @sample
     else
       render :edit, status: :unprocessable_entity
