@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-22.04
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://railsinspire:password@localhost:5432/railsinspire_test
+
+    services:
+      postgres:
+        image: postgres:14.6-alpine
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_DB: railsinspire_test
+          POSTGRES_USER: railsinspire
+          POSTGRES_PASSWORD: password
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
+      - name: Run tests
+        run: bundle exec rails test:all
