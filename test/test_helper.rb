@@ -2,7 +2,12 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 
+require "sidekiq/testing"
+
 class ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
+  include FactoryBot::Syntax::Methods
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
