@@ -18,7 +18,9 @@
 
     <div class="bg-[#272C35] p-4 rounded mb-4 text-xs leading-relaxed text-white font-recursive-mono">
       <div class="overflow-hidden h-24">
-        <pre><%= syntax_higlight(sample.sample_files.first.first_lines(5).join, sample.sample_files.first.path).html_safe %></pre>
+        <% if sample.sample_files&.first.present? %>
+          <pre><%= syntax_higlight(sample.sample_files.first.first_lines(5).join, sample.sample_files.first.path).html_safe %></pre>
+        <% end %>
       </div>
     </div>
 
