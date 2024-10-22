@@ -1,4 +1,6 @@
 class Sample < ApplicationRecord
+  include Discard::Model
+
   enum :status, { private: "private", public: "public" }, prefix: :status
 
   belongs_to :category

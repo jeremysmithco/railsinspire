@@ -2,7 +2,7 @@ class SamplesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def show
-    @sample = Sample.find(params[:id])
+    @sample = Sample.kept.find(params[:id])
     @sample_file = @sample.sample_files.first
     authorize @sample
 
@@ -41,6 +41,17 @@ class SamplesController < ApplicationController
       redirect_to @sample
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @sample = current_user.samples.find(params[:id])
+    authorize @sample
+
+    if @sample.discard
+      redirect_to account_samples_path, notice: "Sample was removed"
+    else
+      redirect_to account_samples_path, notice: "Sample could not be removed"
     end
   end
 

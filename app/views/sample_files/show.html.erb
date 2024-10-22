@@ -19,6 +19,10 @@
       <% if policy(@sample).edit? %>
         <%= link_to "Edit", [:edit, @sample], class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
       <% end %>
+
+      <% if policy(@sample).destroy? %>
+        <%= button_to "Delete", @sample, method: :delete, form: { data: { turbo_confirm: "Delete this sample?" } }, class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
+      <% end %>
     <% end %>
 
     <% c.with_title do %>
