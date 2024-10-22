@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by(slug: params[:id])
     authorize @category
-    @samples = @category.samples.status_public
+    @samples = @category.samples.kept.status_public
   end
 
   def new

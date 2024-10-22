@@ -2,10 +2,10 @@
   title: @sample.title,
   description: strip_markdown(@sample.description),
   og: {
-    image: (rails_blob_url(@sample_file.open_graph_image) if @sample_file.open_graph_image.attached?)
+    image: (rails_blob_url(@sample_file.open_graph_image) if @sample_file&.open_graph_image&.attached?)
   },
   twitter: {
-    image: (rails_blob_url(@sample_file.open_graph_image) if @sample_file.open_graph_image.attached?)
+    image: (rails_blob_url(@sample_file.open_graph_image) if @sample_file&.open_graph_image&.attached?)
   }
 ) %>
 
@@ -18,6 +18,10 @@
     <% c.with_actions do %>
       <% if policy(@sample).edit? %>
         <%= link_to "Edit", [:edit, @sample], class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
+      <% end %>
+
+      <% if policy(@sample).destroy? %>
+        <%= button_to "Delete", @sample, method: :delete, form: { data: { turbo_confirm: "Delete this sample?" } }, class: "px-2 py-1 bg-[#950000] text-white text-sm rounded" %>
       <% end %>
     <% end %>
 
