@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_213615) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_22_110917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,7 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_213615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.enum "status", default: "private", null: false, enum_type: "sample_status"
+    t.datetime "discarded_at"
     t.index ["category_id"], name: "index_samples_on_category_id"
+    t.index ["discarded_at"], name: "index_samples_on_discarded_at"
     t.index ["user_id"], name: "index_samples_on_user_id"
   end
 
